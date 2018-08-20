@@ -16,21 +16,19 @@ public class BalitaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_balita);
 
         // Create a fake list of balita locations.
-        ArrayList<String> balitas = new ArrayList<>();
-        balitas.add("San Francisco");
-        balitas.add("London");
-        balitas.add("Tokyo");
-        balitas.add("Mexico City");
-        balitas.add("Moscow");
-        balitas.add("Rio de Janeiro");
-        balitas.add("Paris");
+        ArrayList<Balita> balitas = new ArrayList<>();
+        balitas.add(new Balita("The unassuming Australian nun taking on Rodrigo Duterte", "2018-06-15T23:00:29Z", "World news"));
+        balitas.add(new Balita("Rodrigo Duterte to pull Philippines out of international criminal court", "2018-03-14T13:17:04Z", "World news"));
+        balitas.add(new Balita("Philippine president Duterte needs psychiatric evaluation, says UN chief", "2018-03-09T09:13:54Z", "World news"));
+        balitas.add(new Balita("Trump hails 'great relationship' with Philippines' Duterte", "2017-11-13T13:29:02Z", "World news"));
+        balitas.add(new Balita("Morning mail: Donald Trump embraces Duterte", "2017-11-13T19:47:43Z", "World news"));
+
 
         // Find a reference to the {@link ListView} in the layout
         ListView balitaListView = (ListView) findViewById(R.id.list);
 
         // Create a new {@link ArrayAdapter} of balitas
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, balitas);
+        BalitaAdapter adapter = new BalitaAdapter(this, balitas);
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
